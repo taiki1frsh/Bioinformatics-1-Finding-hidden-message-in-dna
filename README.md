@@ -7,14 +7,14 @@ I write down the explanation of important functions under the directory, maybe. 
 <br>
 If all tests in a directory can be passed, it means that main functions to solve the problems in that course are fine.    
 To test them, type it under the directory  
-```cargo test```   
+```cargo test```
+<br> <br>
 
-<br> 
+### Contribution   
+I am very immatured in terms of writting stylish and efficient code.   
+So, if you're interested in this work (to write programs for bioinfomatics course on Coursera), feel free to contribute!   
+I need you sincerely.   
+There is no restrict rules of course by the way.   
 
-<br>
-## Contribution   
-
-If you're interested in this work(to write programs for bioinfomatics course on Coursera), feel free to contribute!   
-There is no restrict rules of course.   
 
 
