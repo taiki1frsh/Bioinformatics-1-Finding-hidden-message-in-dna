@@ -1,7 +1,7 @@
 # Description
+Until week 2, the content is to find sequence relating to ori region in many ways.
+Briefly functions like,
+- hamming distance
+- skew calculation
+- findding frequent k-mer patterns
 
-To test functions, exe under this dir
-Cargo test
-
-IF you have a specific funtion to test under test attribute, exe
-cargo test [funtion_name]
