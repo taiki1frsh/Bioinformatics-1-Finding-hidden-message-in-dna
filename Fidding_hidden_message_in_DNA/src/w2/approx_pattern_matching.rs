@@ -3,6 +3,7 @@
 use crate::w2::hamming_distance::*;
 use crate::w1::rev_complements::rev_complements;
 
+// I should have never made struct cuz it has no meaning.
 #[derive(Debug, Clone)]
 pub struct ApproxPattern {
     pub patterns: Vec<String>,
@@ -50,15 +51,6 @@ impl ApproxPattern {
         }
         freq_approx_patterns
     }   
-
-    /* pub fn most_freq_approx_patterns_with_rev(self, genome: &str, k: usize, permissible_distance: u64) -> String{
-        let mut rev_comp_genome = rev_complements(genome);
-        rev_comp_genome += genome;
-        rev_comp_genome
-        /* let rev_pattern = ApproxPattern::new(&rev_comp_genome, k, permissible_distance);
-        let mut freq_approx_pattern_with_rev = rev_pattern.most_freq_approx_patterns();
-        freq_approx_pattern_with_rev */
-    } */
 }
 
 pub fn approx_pattern_locations(pattern: &str, text: &str, permissible_distance: u64) -> Vec<u64> {
@@ -97,15 +89,19 @@ pub fn most_freq_approx_patterns_with_rev(genome: &str, k: usize, permissible_di
 fn test_approx_pattern_matching() {
     // sample data
     let pattern = "ATTCTGGA";
-    let genome = "CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT";
-    let permissible_distance = 3;
-    let freq_approx_patterns = approx_pattern_locations(pattern, genome, permissible_distance);
+    let genome1 = "CGCCCGAATCCAGAACGCATTCCCATATTTCGGGACCACTGGCCTCCACGGTACGGACGTCAATCAAAT";
+    let permissible_distance1 = 3;
+    let freq_approx_patterns = approx_pattern_locations(pattern, genome1, permissible_distance1);
 
     let ans = vec![6,7,26,27];
     assert_eq!(freq_approx_patterns, ans);
 
-    let approx_pattern = ApproxPattern::new(genome, 8, permissible_distance);
-    let freq_approx_patterns = approx_pattern.most_freq_approx_patterns();
-    let ans2 = vec!["ATTCTGGA"];
+    // advanced with reverce
+    let genome2 = "ACGTTGCATGTCGCATGATGCATGAGAGCT";
+    let mut freq_approx_patterns = most_freq_approx_patterns_with_rev(genome2, 4, 1);
+    freq_approx_patterns.sort_unstable();
+
+    let mut ans2 = vec!["ATGT", "ACAT"];
+    ans2.sort_unstable();
     assert_eq!(freq_approx_patterns, ans2);
 }
