@@ -7,11 +7,3 @@ edition = "2018"
 
 [dependencies]
 bio = "0.39.0"
-
-[[bin]]
-name = "w1"
-path = "src/main_w1.rs"
-
-[[bin]]
-name = "w2"
-path = "src/main_w2.rs"
