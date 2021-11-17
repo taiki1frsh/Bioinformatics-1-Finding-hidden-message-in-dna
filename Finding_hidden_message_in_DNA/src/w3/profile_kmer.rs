@@ -57,20 +57,18 @@ pub fn profile_matrix(motifs: Vec<&str>) -> Vec<Vec<f64>> {
         char.insert('C', 1);
         char.insert('G', 2);
         char.insert('T', 3);
-        let mut num: Vec<f64> = vec![0.0, 0.0, 0.0, 0.0];
+        let mut num: Vec<f64> = vec![1.0, 1.0, 1.0, 1.0];
 
         for j in 0..len_table {
             let text = motif_table[j][0];
             num[char[&text.chars().nth(i).unwrap()]] += 1.0;
         }
         for k in 0..num.len() {
-            matrix[k][i] = num[k] / len_table as f64;
+            matrix[k][i] = num[k] / (len_table as f64 + 4.0);
         }    
     }
     matrix
 }
-
-// it would be nice to make a matrix
 
 #[test]
 fn test_probability_profile() {
